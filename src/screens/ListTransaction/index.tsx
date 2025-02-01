@@ -40,7 +40,7 @@ const ListTransactionsScreen = () => {
             );
             const userId = mmkv.getString('userId');
             if (userId) {
-              mmkv.set(userId, JSON.stringify(updatedTransactions)); // Update the user’s data in storage
+              mmkv.set(userId, JSON.stringify(updatedTransactions));
             }
             setTransactions(updatedTransactions);
           },
