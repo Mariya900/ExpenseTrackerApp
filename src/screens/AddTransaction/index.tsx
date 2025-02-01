@@ -32,20 +32,14 @@ const AddTransactionScreen = () => {
       amount: parseFloat(amount),
       date: date.toISOString(),
     };
-
-    // Get existing transactions for the logged-in user
     const existingTransactions = mmkv.getString(userId);
     const transactions = existingTransactions
       ? JSON.parse(existingTransactions)
       : [];
-
-    // Add new transaction and save
     transactions.push(newTransaction);
-    mmkv.set(userId, JSON.stringify(transactions)); // Save under userId key
+    mmkv.set(userId, JSON.stringify(transactions)); 
 
     Alert.alert('Success', 'Transaction added successfully');
-
-    // Clear input fields
     setTransactionName('');
     setAmount('');
     setDate(new Date());
